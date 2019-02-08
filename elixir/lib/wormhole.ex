@@ -22,9 +22,7 @@ defmodule Wormhole do
     iex> Wormhole.juxt([&Kernel.+/2, &Kernel.*/2]).([3,5])
     [8, 15]
   """
-  def juxt(fs) do
-    (fn x -> Enum.map(fs, fn f -> apply(f, x) end) end)
-  end
+  def juxt(fs), do: (fn x -> Enum.map(fs, fn f -> apply(f, x) end) end)
 
   @doc ~S"""
   Increments an integer by 1.
@@ -34,7 +32,7 @@ defmodule Wormhole do
     iex> Wormhole.inc(3)
     4
   """
-  def inc(x), do: x + 1  
+  def inc(x) when is_integer(x), do: x + 1  
 
   @doc ~S"""
   Decrements an integer by 1.
@@ -44,5 +42,5 @@ defmodule Wormhole do
     iex> Wormhole.dec(3)
     2
   """
-  def dec(x), do: x - 1  
+  def dec(x) when is_integer(x), do: x - 1  
 end
