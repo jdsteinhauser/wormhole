@@ -1,6 +1,6 @@
 (ns wormhole.core)
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+; (defn reduce-while
+;   "I don't do a whole lot."
+;   [f pred coll]
+;   (println x "Hello, World!"))
