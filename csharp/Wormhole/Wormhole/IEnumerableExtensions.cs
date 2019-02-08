@@ -9,6 +9,9 @@ namespace Wormhole
         public static TAcc ReduceWhile<T, TAcc>(
             this IEnumerable<T> data, Func<T, TAcc, Tuple<bool, TAcc>> reducerFunc, TAcc initial)
         {
+            if (data == null || !data.Any())
+                return initial;
+            
             TAcc state = initial;
             foreach (var item in data)
             {
@@ -35,6 +38,21 @@ namespace Wormhole
             yield break;
         }
 
+        public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> data, int step, int padding, bool keepRemainder) {
+            if (data == null || !data.Any())
+                yield break;
+
+            var chunk = Enumerable.Empty<T>();
+
+            for (var unchunked = data; unchunked.Any(); unchunked = unchunked.Skip(step)) {
+                chunk = unchunked.Take(padding);
+                if (chunk.Count() == padding || keepRemainder)
+                    yield return chunk;
+            }
+
+            yield break;
+        }
+
         public static IEnumerable<IEnumerable<T>> ChunkBy<T, U>(this IEnumerable<T> data, Func<T, U> mapper)
         {
             if (data == null || !data.Any())
@@ -48,12 +66,15 @@ namespace Wormhole
                 var result = mapper(item);
 
                 if (result.Equals(value))
+                {
                     acc.Add(item);
+                }
                 else
                 {
                     value = result;
                     yield return acc;
                     acc = new List<T>();
+                    acc.Add(item);
                 }
             }
 
