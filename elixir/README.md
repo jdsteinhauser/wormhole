@@ -14,15 +14,15 @@ end
 ## Functions
 
 ### Implemented in the language
-- `map` - `Enum.map` and `Stream.map`
-- `filter`
-- `reduce`
-- `reduce_while`
-- `chunk`
-- `chunk_by`
-- `min_by`
-- `max_by`
-- `group_by`
+- `map` - [`Enum.map`](https://hexdocs.pm/elixir/Enum.html#map/2) and [`Stream.map`](https://hexdocs.pm/elixir/Stream.html#map/2)
+- `filter` - [`Enum.filter`](https://hexdocs.pm/elixir/Enum.html#filter/2)
+- `reduce` - [`Enum.reduce`](https://hexdocs.pm/elixir/Enum.html#reduce/3)
+- `reduce_while` - [`Enum.reduce_while`](https://hexdocs.pm/elixir/Enum.html#reduce_while/3)
+- `chunk` - [`Enum.chunk_every`](https://hexdocs.pm/elixir/Enum.html#chunk_every/2) and [`Stream.chunk_every`](https://hexdocs.pm/elixir/Stream.html#chunk_every/2)
+- `chunk_by` - [`Enum.chunk_by`](https://hexdocs.pm/elixir/Enum.html#chunk_by/2) and [`Stream.chunk_by`](https://hexdocs.pm/elixir/Stream.html#chunk_by/2)
+- `min_by` - [`Enum.min_by`](https://hexdocs.pm/elixir/Enum.html#min_by/3)
+- `max_by` - [`Enum.max_by`](https://hexdocs.pm/elixir/Enum.html#max_by/3)
+- `group_by` - [`Enum.group_by`](https://hexdocs.pm/elixir/Enum.html#group_by/3)
 
 ### Implemented in Wormhole
 - `juxt` - `Wormhole.juxt`

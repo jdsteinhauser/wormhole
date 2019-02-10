@@ -36,11 +36,11 @@ as well as links to their documentation.
 - Elixir
 - Clojure
 - C#
+- F#
 
 ### To Be Implemented
-- F#
 - Python
 - JavaScript
 - Ruby
-- C++
+- C++ (?)
 - Rust
