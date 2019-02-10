@@ -12,3 +12,11 @@
         (if halt? 
           x
           (recur x (rest s)))))))
+
+(defn min-by
+  [f coll]
+  (first (sort-by f coll)))
+
+(defn max-by
+  [f coll]
+  (first (reverse (sort-by f coll))))
