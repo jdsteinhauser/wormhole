@@ -9,17 +9,18 @@ FIXME
 ## Functions
 
 ### Implemented in the language
-- `map`
-- `filter`
-- `reduce`
-- `chunk`
-- `chunk_by`
-- `min_by`
-- `max_by`
+- `map` - [`clojure.core/map`](https://clojuredocs.org/clojure.core/map)
+- `filter` - [`clojure.core/filter`](https://clojuredocs.org/clojure.core/filter)
+- `reduce` - [`clojure.core/reduce`](https://clojuredocs.org/clojure.core/reduce)
+- `chunk` - [`clojure.core/partition`](https://clojuredocs.org/clojure.core/partition)
+- `chunk_by` - [`clojure.core/partition-by`](https://clojuredocs.org/clojure.core/partition-by)
 - `group_by`
+- `scan` - [`clojure.core/reductions`](https://clojuredocs.org/clojure.core/reductions)
 
 ### Implemented in Wormhole
-- `reduce_while`
+- `reduce_while` - `wormhole.core/reduce-while`
+- `min_by` - `wormhole.core/min-by`
+- `max_by` - `wormhole.core/max-by`
 
 ## License
 
