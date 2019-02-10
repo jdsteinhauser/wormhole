@@ -26,15 +26,18 @@ as well as links to their documentation.
 - `max_by`
 - `frequencies`
 - `group_by`
+- `scan`
+- `inc`
+- `dec`
 
 ## Languages
 
 ### Current Implemented
 - Elixir
 - Clojure
+- C#
 
 ### To Be Implemented
-- C#
 - F#
 - Python
 - JavaScript

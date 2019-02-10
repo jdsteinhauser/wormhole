@@ -14,7 +14,7 @@ FIXME
 - `reduce` - [`clojure.core/reduce`](https://clojuredocs.org/clojure.core/reduce)
 - `chunk` - [`clojure.core/partition`](https://clojuredocs.org/clojure.core/partition)
 - `chunk_by` - [`clojure.core/partition-by`](https://clojuredocs.org/clojure.core/partition-by)
-- `group_by`
+- `group_by` - [`clojure.core/group-by`](https://clojuredocs.org/clojure.core/group-by)
 - `scan` - [`clojure.core/reductions`](https://clojuredocs.org/clojure.core/reductions)
 
 ### Implemented in Wormhole
