@@ -29,6 +29,7 @@ as well as links to their documentation.
 - `scan`
 - `inc`
 - `dec`
+- `zip` (for arbitrary # of sequences)
 
 ## Languages
 

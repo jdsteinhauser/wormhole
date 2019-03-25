@@ -23,6 +23,7 @@ end
 - `min_by` - [`Enum.min_by`](https://hexdocs.pm/elixir/Enum.html#min_by/3)
 - `max_by` - [`Enum.max_by`](https://hexdocs.pm/elixir/Enum.html#max_by/3)
 - `group_by` - [`Enum.group_by`](https://hexdocs.pm/elixir/Enum.html#group_by/3)
+- `zip` - [`Enum.zip`](https://hexdocs.pm/elixir/Enum.html#zip/1)
 
 ### Implemented in Wormhole
 - `juxt` - `Wormhole.juxt`
