@@ -21,7 +21,7 @@ namespace Wormhole
             |> Seq.groupBy id
             |> Seq.map (fun k v -> k, Seq.length v)
 
-        let zipall xs =
+        let zipAll xs =
             let rec impl xs acc =
                 if Seq.exists (fun x -> Seq.length x = 0) xs
                 then List.rev acc
@@ -29,10 +29,20 @@ namespace Wormhole
 
             impl xs []
 
-
         let chunk step size keepLeftover xs =
             let rec impl xs acc =
                 if Seq.length xs < size
                 then List.rev acc
-                else impl (Seq.drop step xs) ((Seq.take step xs) :: acc)
+                else impl (Seq.skip step xs) ((Seq.take step xs) :: acc)
             xs []
+
+        let chunkBy f xs =
+            let rec impl xs prevFx chunk acc =
+                match Seq.count xs, Seq.count chunk with
+                | 0,0 -> List.rev acc
+                | 0,_ -> List.rev ((List.rev chunk) :: acc)
+                | _,_ -> let x::rest = xs
+                         match f x with
+                            | fx when fx = prevFx -> impl rest prevFx (x :: chunk) acc
+                            | fx -> impl xs fx [x] ((List.rev chunk) :: acc)
+            impl xs (f (Seq.head xs)) [Seq.head xs] []
