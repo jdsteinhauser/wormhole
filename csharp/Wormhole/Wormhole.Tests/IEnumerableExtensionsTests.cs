@@ -122,5 +122,39 @@ namespace Wormhole.Tests
             Assert.AreEqual(5, actual.Count());
             Assert.IsTrue(actual.All(x => x.Value == 2));
         }
+
+        [TestMethod]
+        public void ZipFourSeqs() {
+            var actual = Wormhole.IEnumerableExtensions.ZipAll(
+                Enumerable.Range(1, 5),
+                Enumerable.Range(1, 5),
+                Enumerable.Range(1, 5),
+                Enumerable.Range(1, 5));
+
+            Assert.IsTrue(actual.All(x => x.Count() == 4));
+            Assert.IsTrue(actual.Count() == 5);
+            for (int i = 0; i < actual.Count(); i++)
+            {
+                for (int j = 0; j < actual.ElementAt(i).Count(); j++)
+                    Assert.AreEqual(i+1, actual.ElementAt(i).ElementAt(j), $"{i},{j}");
+            }
+        }
+
+        [TestMethod]
+        public void ZipUneven() {
+            var actual = Wormhole.IEnumerableExtensions.ZipAll(
+                Enumerable.Range(1, 5),
+                Enumerable.Range(1, 5),
+                Enumerable.Range(1, 4),
+                Enumerable.Range(1, 5));
+
+            Assert.IsTrue(actual.All(x => x.Count() == 4));
+            Assert.IsTrue(actual.Count() == 4);
+            for (int i = 0; i < actual.Count(); i++)
+            {
+                for (int j = 0; j < actual.ElementAt(i).Count(); j++)
+                    Assert.AreEqual(i + 1, actual.ElementAt(i).ElementAt(j), $"{i},{j}");
+            }
+        }
     }
 }

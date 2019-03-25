@@ -87,5 +87,20 @@ namespace Wormhole
         public static IDictionary<TKey, int> Frequencies<T,TKey>(
             this IEnumerable<T> data, Func<T, TKey> keySelector) =>
                 data.GroupBy(keySelector).ToDictionary(x => x.Key, x => x.Count());
+
+        public static IEnumerable<IEnumerable<T>> ZipAll<T>(
+            params IEnumerable<T>[] streams) => streams.ZipAll();
+
+        public static IEnumerable<IEnumerable<T>> ZipAll<T>(
+            this IEnumerable<IEnumerable<T>> streams) {
+
+            var enumerators = streams.Select(x => x.GetEnumerator()).ToArray();
+
+            while(enumerators.All(x => x.MoveNext())) {
+                yield return (enumerators.Select(x => x.Current));
+            }
+
+            yield break;
+        }
     }
 }
