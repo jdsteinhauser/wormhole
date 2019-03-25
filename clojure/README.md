@@ -16,6 +16,9 @@ FIXME
 - `chunk_by` - [`clojure.core/partition-by`](https://clojuredocs.org/clojure.core/partition-by)
 - `group_by` - [`clojure.core/group-by`](https://clojuredocs.org/clojure.core/group-by)
 - `scan` - [`clojure.core/reductions`](https://clojuredocs.org/clojure.core/reductions)
+- `zip` - [`clojure.core/mapv`](https://clojuredocs.org/clojure.core/mapv)*
+
+\* - I know `mapv` isn't exactly the same as arbitrarily zipping collections together, but you can accomplish that using `(apply (partial mapv vector))`
 
 ### Implemented in Wormhole
 - `reduce_while` - `wormhole.core/reduce-while`
