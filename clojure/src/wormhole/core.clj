@@ -19,4 +19,4 @@
 
 (defn max-by
   [f coll]
-  (first (reverse (sort-by f coll))))
+  (last (sort-by f coll)))
